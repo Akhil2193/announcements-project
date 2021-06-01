@@ -1,0 +1,227 @@
+body {
+  overflow-x: hidden;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  overflow: hidden;
+  /* background-color: white; */
+}
+
+.flex-item-1 {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), yellow 75%, #ffa500 30%);
+  flex: 50%;
+}
+
+.flex-item-2 {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), yellow 75%, #ffa500 30%);
+  flex: 50%;
+}
+.flex-container-in {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  overflow: hidden;
+  /* background-color: white; */
+}
+
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+
+@media (max-width: 1168px) {
+  .flex-item-1 {
+    flex: 50%;
+  }
+  .flex-item-2 {
+    flex: 50%;
+    background: #ffa500;
+  }
+}
+
+@media (max-width: 326px) {
+  .flex-item-1 {
+    flex: 100%;
+  }
+  .flex-item-2 {
+    flex: 100%;
+    background: #ffa500;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-waves {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #3586ff;
+  overflow: hidden;
+}
+
+.footer-waves .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(wave.png);
+  background-size: 1000px 100px;
+}
+
+.footer-waves .wave.wave1 {
+  animation: animate1 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+@keyframes animate1 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+.footer-waves .wave.wave2 {
+  animation: animate2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+.footer-waves .wave.wave3 {
+  animation: animate 15s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+.footer-waves .wave.wave4 {
+  animation: animate2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+
+.fl2 {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+}
+
+#flex-item-left {
+  padding: 5%;
+  flex: 50%;
+}
+
+#flex-item-right {
+  padding: 5%;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+
+@media (max-width:500px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}
+
+.f {
+  background: rgba(235, 154, 4, 0.3);
+  margin: 2%;
+  padding: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 200%;
+}
+
+@media (max-width:1168px) {
+  .f {
+    background: rgba(250, 151, 2, 1.0);
+  }
+}
+
+.footer-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 70%;
+  overflow: hidden;
+  line-height: 2;
+  list-style: none;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 700ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
+}
+
+.dev:hover {
+  font-size: 105%;
+}
+
+#cam:hover {
+  width: 165px;
+  height: 110px;
+}
+
+#foot {
+  padding: 2%;
+  font-size: 120%;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background-color: chocolate;
+  text-align: center;
+}
+
+.link {
+  margin: 10px;
+}
+
+.link:hover {
+  background-color: #ffa500;
+  border-radius: 10px;
+}
+
+.fa {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa-github {
+  color: black;
+}
+
+.fa:hover {
+  opacity: 1;
+  color: #ffa500;
+}
+
+@media (max-width:360px) {
+  #foot {
+    font-size: 110%;
+  }
+}

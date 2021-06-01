@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+#myVideo {
+  position: fixed;
+  z-index: -1;
+  top: 0px;
+}
+
+@media (min-aspect-ratio:16/9) {
+  #myVideo {
+    min-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio:16/9) {
+  #myVideo {
+    min-width: 100%;
+    height: 810px;
+    /* height:100%; */
+  }
+}
+
+.head-content {
+  position: absolute;
+  /* bottom: 0; */
+  background: rgba(0, 0, 0, 0.6);
+  color: #f1f1f1;
+  width: 100%;
+  height:720px;
+}
+
+#myBtn {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+
+#inner-intro {
+  text-align: center;
+  margin: 2.5em;
+  padding: 2em;
+  padding-top: 5em;
+  height: 80%;
+  font-size: 1em;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 1em
+}
+
+#idname {
+  text-align: center;
+  size: 20%;
+}
+/*my section */
+#intro-page{
+  height: 720px;
+}
+.heading {
+  text-align: center;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 450px) {
+  h1.ml12 {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  h1.ml1 {
+    font-size: 6vw;
+  }
+}

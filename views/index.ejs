@@ -1,0 +1,63 @@
+<%- include('header'); -%>
+    <title>Announcements</title>
+    </head>
+
+    <body>
+        <!-- navbar section start  -->
+        <%- include('navbar'); -%>
+            <!-- navbar section ends  -->
+            <!-- video section starts  -->
+            <div id="intro-page">
+                <video autoplay loop id="myVideo">
+                    <source src="css/video/campus.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+
+                <div class="head-content" class="container-fluid" class="flex-container">
+                    <div id="inner-intro">
+                        <h1 class="ml1" class="heading">
+                            <span class="text-wrapper">
+                                <span class="line line1"></span>
+                                <span text-align="center;">
+                                    <span class="letters">BITS GOA</span>
+                                </span>
+                                <span class="line line2"></span>
+                            </span>
+                        </h1>
+
+                        <h1 class="ml12">ANNOUNCEMENTS</h1>
+
+
+                        <button id="myBtn" onclick="myFunction()">Pause</button>
+                    </div>
+                </div>
+            </div>
+            <!-- video section ends  -->
+            <!-- event-announcer section starts  -->
+            <section id="event-announcer">
+                <br><br>
+                <h1 class="heading"><span class="title">Event</span>Announcer</h1>
+                <div class="inputDiv">
+                    <input type="text" class="input" placeholder="Type of event...">
+                    <button class="add"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="container full granimate">
+                    <% for(var i=users.length-1; i>=0; i--) { %>
+                        <form action="/description" method="post">
+                            <div class="item" onclick="document.forms[0].submit()">
+                                <input type="text" name="eventAnnouncerID" value = <%= users[i]._id %> style="display:none">
+                                <div class="content">
+                                    <div> <br><br><br><br>
+                                        Title: <%= users[i].fname %><br><br><br>Date: <%= users[i].lname %>
+                                        <br><br><br>Time: <%= users[i].etime %>
+                                    </div>
+                                </div>
+                                <div class="item_input">Event : <%= users[i].fname %>
+                                </div>
+                            </div>
+                        </form>
+                    <% } %>
+                </div>
+            </section>
+            <!-- event-announcer section ends  -->
+            <%- include('footer') -%>

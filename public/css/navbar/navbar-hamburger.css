@@ -1,0 +1,66 @@
+.hamburger-line1 {
+    display: block;
+    width: 34px;
+    height: 4px;
+    position: absolute;
+    right: 28px;
+    background-color: white;
+    border-radius: 6px;
+    top: 30px;
+}
+
+.hamburger-line1::before {
+    display: block;
+    width: 34px;
+    height: 4px;
+    position: absolute;
+    content: "";
+    top: -10px;
+    background-color: white;
+    border-radius: 6px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-line1::after {
+    display: block;
+    width: 34px;
+    height: 4px;
+    position: absolute;
+    content: "";
+    top: 10px;
+    background-color: white;
+    border-radius: 6px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger {
+    width: 30px;
+    display: none;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+.hamburger-line1.is-active::before{
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.hamburger-line1.is-active::after{
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+}
+@media all and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+}

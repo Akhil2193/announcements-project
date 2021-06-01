@@ -1,0 +1,139 @@
+/* //css khushi  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.heading {
+    color: rgb(27, 26, 26);
+    font-size: 3rem;
+    font-weight: 50;
+    text-align: center;
+    padding-top: 1rem;
+    margin: 0rem 0 3rem;
+    font-family: 'Hind', sans-serif;
+}
+
+.title {
+    color: rgb(0, 174, 255);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.inputDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    padding: 0.5rem 1rem;
+    outline: none;
+    height: 50px;
+    border-radius: 50px;
+    width: 350px;
+    margin: 0.25rem;
+    transition: .5s;
+    font-size: 1.15rem;
+}
+
+.add {
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 50px;
+    background-color: rgb(0, 162, 255);
+    color: rgb(19, 18, 18);
+    cursor: pointer;
+    transition: .5s;
+    margin: 0.25rem;
+}
+
+.add:hover {
+    opacity: 0.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 2rem;
+    border-bottom: 1px solid rgb(24, 23, 23);
+    box-shadow: 0px 1px 7px rgb(0, 1, 0);
+    margin: 1.5rem;
+}
+
+.item_input {
+    background: none;
+    outline: none;
+    border: none;
+    color: rgb(32, 30, 30);
+    font-size: 1.4rem;
+    width: 245px;
+    margin-top: 30%;
+}
+
+.remove {
+    background: none;
+    border-radius: 100%;
+    font-weight: 1000;
+    background-color: rgb(233, 24, 24);
+    color: rgb(235, 220, 220);
+    height: 40px;
+    width: 40px;
+    font-size: large;
+    font-family: 'Hind', sans-serif;
+    cursor: pointer;
+    padding: 0.2rem;
+    border: none;
+    box-shadow: 0px 1px 7px rgb(155, 14, 4);
+}
+
+.content {
+    border-bottom: 1px solid rgb(24, 23, 23);
+    background-image: url("./poster-background.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 5px 10px rgb(0, 1, 0);
+    /* margin: 0.2rem; */
+    background-color: crimson;
+    /* width: 95%; */
+    height: 350px;
+    /* margin-bottom: -50px; */
+    /* margin-top: -25px; */
+    padding-bottom: -3rem;
+}
+
+.content div {
+    background-color: transparent;
+    color: transparent;
+    height: 40%;
+}
+
+.content div:hover {
+    background-color: rgb(23, 49, 82);
+    height: 100%;
+    transition-duration: 1.5s;
+    transform: scaleX();
+    color: white;
+}
+#event-announcer{
+    background-color: white;
+}
+/* //css ends */
