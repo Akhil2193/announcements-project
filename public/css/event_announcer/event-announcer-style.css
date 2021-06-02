@@ -11,6 +11,16 @@ body {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10 px;
+    background:transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+}
+
 .heading {
     color: rgb(27, 26, 26);
     font-size: 3rem;
@@ -73,8 +83,8 @@ body {
 
 .item {
     padding: 2rem;
-    border-bottom: 1px solid rgb(24, 23, 23);
-    box-shadow: 0px 1px 7px rgb(0, 1, 0);
+    /* border-bottom: 1px solid rgb(24, 23, 23);
+    box-shadow: 0px 1px 7px rgb(0, 1, 0); */
     margin: 1.5rem;
 }
 
@@ -82,10 +92,12 @@ body {
     background: none;
     outline: none;
     border: none;
-    color: rgb(32, 30, 30);
+    color: rgb(255, 255, 255);
     font-size: 1.4rem;
     width: 245px;
     margin-top: 30%;
+    position: relative;
+    bottom: 13vh;
 }
 
 .remove {
@@ -133,7 +145,8 @@ body {
     transform: scaleX();
     color: white;
 }
-#event-announcer{
-    background-color: white;
+
+#event-announcer {
+    background-image: linear-gradient(white, #9fdedc);
 }
 /* //css ends */

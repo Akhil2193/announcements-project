@@ -35,18 +35,17 @@
             <!-- video section ends  -->
             <!-- event-announcer section starts  -->
             <section id="event-announcer">
-                <br><br>
-                <h1 class="heading"><span class="title">Event</span>Announcer</h1>
-                <div class="inputDiv">
-                    <input type="text" class="input" placeholder="Type of event...">
-                    <button class="add"><i class="fas fa-plus"></i></button>
-                </div>
+                
                 <div class="container full granimate">
-                    <% for(var i=users.length-1; i>=0; i--) { %>
-                        <form action="/description" method="post">
-                            <div class="item" onclick="document.forms[0].submit()">
-                                <input type="text" name="eventAnnouncerID" value = <%= users[i]._id %> style="display:none">
-                                <div class="content">
+                    <% for(var i=0; i< users.length; i++) { %>
+                        <form action="/description" method="post" class = "formabc">
+                            
+                                <input type="hidden" name="eventAnnouncerID" value= "<%= users[i]._id %>">
+                            
+                            <div class="item" onclick="document.forms['<%-JSON.stringify(i)%>'].submit()">
+                                
+                                
+                                <div class="content" id="<%= i %>">
                                     <div> <br><br><br><br>
                                         Title: <%= users[i].fname %><br><br><br>Date: <%= users[i].lname %>
                                         <br><br><br>Time: <%= users[i].etime %>
@@ -56,8 +55,19 @@
                                 </div>
                             </div>
                         </form>
-                    <% } %>
-                </div>
+                        <!-- <div class= <%= users[i]._id %> style="display: none;">
+                            Lorem ipsum dolor sit. : <%= users[i].fname %>;
+                        </div>
+                        <script>
+                            $('.content').click(function(){
+                                
+                                $('.formabc').css('display','none');
+                                $(`#`+'<%=users[i]._id%>').css('display','block');
+                                // document.getElementById('description').style.display = 'block';
+                            })
+                        </script> -->
+                        <% } %>
+                    </div>
             </section>
             <!-- event-announcer section ends  -->
             <%- include('footer') -%>

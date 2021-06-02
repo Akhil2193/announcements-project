@@ -33,6 +33,9 @@ app.get('/', function(req,res){
       });
 
 })
+app.get('/admin',function(req,res){
+    
+})
 app.post('/description',function(req,res){
     console.log(req.body);
     const eventID = req.body.eventAnnouncerID;
