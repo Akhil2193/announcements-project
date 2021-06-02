@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>event-announcer</title>
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+  
+
+        <h1 class="admin-text">Admin Page</h1>
+        <div class="container form">
+            <div>Create</div>
+            <form action="/users" method="POST">
+              <div class="entry">
+                <label for="fname">Event Name</label>
+                <input type="text" placeholder="Name" name="fname" />
+              </div>
+              <div class="entry">
+                <label for="lname">Event Date</label>
+                <input type="text" placeholder="31st Feb" name="lname" />
+              </div>
+              <div class="entry">
+                <label for="etime">Event Time</label>
+                <input type="text" placeholder="3:00 pm" name="etime" />
+              </div>
+              <div class="entry">
+                <label for="elink">Link</label>
+                <input type="text" placeholder="" name="elink" />
+              </div>
+              <div class="entry">
+                <label for="edesc">Description</label>
+                <input type="text" placeholder="" name="edesc" />
+              </div>
+              <div class="entry">
+                <label for="epic">Image</label>
+                <input type="image" placeholder="" name="epic" />
+              </div>
+              <button class="button button-block" type="submit">
+                Create
+              </button>
+            </form>
+          </div>
+          <div class="container">
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="4"><div>Current Events</div></th>
+                </tr>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Event Date</th>
+                        <th>Event Time</th>
+                        
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < users.length; i++) { %>
+                    <tr>
+                        <td><%= users[i].fname %></td>
+                        <td><%= users[i].lname %></td>
+                        <td><%= users[i].etime %></td>
+                        
+                        <td>
+                         
+                            <button
+                                class="button deleteButton"
+                                data-fname="<%=  users[i].fname %>"
+                                data-lname="<%= users[i].lname %>"
+                                data-etime="<%= users[i].etime %>"
+                               
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+         
+           
+      
+        <script src="/main.js"></script>
+      
+    </body>
+</html>
