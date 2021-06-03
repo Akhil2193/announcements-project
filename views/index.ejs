@@ -34,40 +34,74 @@
             </div>
             <!-- video section ends  -->
             <!-- event-announcer section starts  -->
-            <section id="event-announcer">
-                
-                <div class="container full granimate">
-                    <% for(var i=0; i< users.length; i++) { %>
-                        <form action="/description" method="post" class = "formabc">
+            <% var size=users.length %>
+                <section id="event-announcer">
+
+                    <div class="event-card-container">
+                        <div class="event-card" >
+
                             
-                                <input type="hidden" name="eventAnnouncerID" value= "<%= users[i]._id %>">
-                            
-                            <div class="item" onclick="document.forms['<%-JSON.stringify(i)%>'].submit()">
-                                
-                                
-                                <div class="content" id="<%= i %>">
+                            <div class="event-card-img">
+                                <img src="css/event_announcer/derrick-cooper-L505cPnmIds-unsplash.jpg" alt="">
+                            </div>
+                            <div class="event-card-content">
+                                <ul><li>Lorem ipsum dolor sit.</li>
+                                <li>Lorem ipsum dolor sit.</li>
+                                <li>Lorem ipsum dolor sit.</li></ul>
+                            </div>
+                        </div>
+                        
+                        
+                        <% for(var i=0; i< 4; i++) { %>
+                            <!-- <form action="/description" method="post" class="formabc">
+
+                                <input type="hidden" name="eventAnnouncerID" value="<%= users[i]._id %>"> -->
+
+                            <div class="event-card" id="<%=`${i.toString()}card` %>">
+
+                                <!-- onclick="document.forms['<%-JSON.stringify(i)%>'].submit()" -->
+                                <!-- <div class="face1">
+                                    <img src="css/event_announcer/poster-background.jpeg" alt="">
+                                </div>
+                                <div class="content">
                                     <div> <br><br><br><br>
                                         Title: <%= users[i].fname %><br><br><br>Date: <%= users[i].lname %>
-                                        <br><br><br>Time: <%= users[i].etime %>
-                                    </div>
+                                                <br><br><br>Time: <%= users[i].etime %>
+                                    </div> -->
+                                <!-- </div> -->
+                                <!-- <div class="item_input">Event : <%= users[i].fname %> -->
+                                <!-- </div> -->
+                                <div class="event-card-img">
+                                    <img src="css/event_announcer/poster-background.jpeg" alt="">
                                 </div>
-                                <div class="item_input">Event : <%= users[i].fname %>
+                                <div class="event-card-content">
+                                    <ul><li>Lorem ipsum dolor sit.</li>
+                                    <li>Lorem ipsum dolor sit.</li>
+                                    <li>Lorem ipsum dolor sit.</li></ul>
                                 </div>
                             </div>
-                        </form>
-                        <!-- <div class= <%= users[i]._id %> style="display: none;">
-                            Lorem ipsum dolor sit. : <%= users[i].fname %>;
-                        </div>
-                        <script>
-                            $('.content').click(function(){
-                                
-                                $('.formabc').css('display','none');
-                                $(`#`+'<%=users[i]._id%>').css('display','block');
-                                // document.getElementById('description').style.display = 'block';
-                            })
-                        </script> -->
-                        <% } %>
+                            <!-- </form> -->
+                            <div id="<%= `${JSON.stringify(i)}description` %>" style="display: none;">
+                                Lorem ipsum dolor sit. : <%= users[i].fname %>;
+                            </div>
+
+                            <% } %>
                     </div>
-            </section>
-            <!-- event-announcer section ends  -->
-            <%- include('footer') -%>
+                </section>
+                <script>
+                    var size = parseInt('<%=size%>');
+                    for (var i = 0; i < size; i++)(function (i) {
+
+                        $('#' + i.toString() + 'card').on('click', function () {
+                            // console.log(`${i} element was clicked`);
+                            $('.item').css('display', 'none');
+                            $('#' + i.toString() + 'description').css('display', 'block');
+                            // console.log("this function on " + id + "was called");
+                        });
+                    })(i);
+
+
+
+                </script>
+                <!-- event-announcer section ends  -->
+                <%- include('footer') -%>
