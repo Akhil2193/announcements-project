@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>event-announcer</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.css">
+</head>
+
+<body onload="document.createEvent.reset()">
+
+
+  <h1 class="admin-text">Admin Page</h1>
+  <div class="container form">
+    <br><br>
+    <form action="/users" method="POST" id="createEvent" name = "createEvent">
+      <div class="entry">
+        <label for="fname" class="form-entry-data">Event Name</label>
+        <input type="text" placeholder="Name" name="fname" id="fname" />
+      </div>
+      <div class="entry">
+        <label for="lname" class="form-entry-data">Event Date</label>
+        <input type="text" placeholder="31st Feb" name="lname" id="lname" />
+      </div>
+      <div class="entry">
+        <label for="etime" class="form-entry-data">Event Time</label>
+        <input type="text" placeholder="3:00 pm" id="etime" name="etime" />
+      </div>
+      <div class="entry">
+        <label for="elink" class="form-entry-data">Link</label>
+        <input type="text" placeholder="" name="elink" id="elink" />
+      </div>
+      <div class="entry">
+        <label for="edesc" class="form-entry-data">Description</label>
+        <input type="text" id="edesc" placeholder="" name="edesc" />
+      </div>
+      <div class="entry">
+        <label class="form-entry-data">Image</label>
+        <input type="file" id="upload_image" style="display:none;" />
+        <label for="upload_image" class="choose-image">
+          Choose an image
+        </label>
+      </div>
+    </form>
+    <button class="button button-block" id="create">
+      Create
+    </button>
+  </div>
+  <div class="display-image">
+    <div class="crop-display-image" id="crop-display-image">
+
+      <img src="" id="sample-image">
+    </div>
+    <div class="crop-image-preview-container">
+      <span class="crop-image-preview-text1">Preview</span><br><br>
+      <div class="crop-image-preview"></div>
+    </div>
+    <div class="cropper-options">
+      <ul class="cropper-options-list">
+        <li class="cropper-options-list-items">The preview box shows how the image will be shown on the Announcement
+          Card.</li>
+        <li class="cropper-options-list-items">Use the Mouse wheel to zoom in and out of the image.</li>
+        <li class="cropper-options-list-items">Double click on the image to toggle between drag and crop mode.</li>
+        <li class="cropper-options-list-items">In case the image doesnot fit completely you can also select the black area it will remain transparent in the Card.</li>
+        <li class="cropper-options-list-items">Click the Lock button to lock your selection it will not submit the image.</li>
+      </ul>
+      <div class='cropper-button-container'>
+        <button class="button cropper-button" id="cropper-disable">Lock Selection</button>
+        <button class="button cropper-button" id="cropper-enable">Unlock Selection</button>
+        <button class="button cropper-button" id="cropper-reset">Reset</button>
+      </div>
+    </div>
+    <br><br><br>
+  </div>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4">
+            <div><br>Current Events</div>
+          </th>
+        </tr>
+        <tr>
+          <th>Event Name</th>
+          <th>Event Date</th>
+          <th>Event Time</th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < users.length; i++) { %>
+          <tr>
+            <td>
+              <%= users[i].fname %>
+            </td>
+            <td>
+              <%= users[i].lname %>
+            </td>
+            <td>
+              <%= users[i].etime %>
+            </td>
+
+            <td>
+
+              <button class="button deleteButton" data-fname="<%=  users[i].fname %>" data-lname="<%= users[i].lname %>"
+                data-etime="<%= users[i].etime %>">
+                Delete
+              </button>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+
+
+
+    <script src="/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+    <script src="/formsubmit.js"></script>
+
+</body>
+
+</html>

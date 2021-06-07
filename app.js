@@ -16,7 +16,7 @@ const dbUrl ='mongodb+srv://Khushi:Khushi@cluster0.3ypzd.mongodb.net/node-demo?r
 mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.get('/', function(req,res){
-    res.set('Cache-Control','public, max-age =300, s-maxage = 600');
+    // res.set('Cache-Control','public, max-age =300, s-maxage = 600');
     MongoClient.connect(dbUrl, { useUnifiedTopology: true }, (err, client) => {
         if (err) return console.error(err);
         const db = client.db('node-demo');

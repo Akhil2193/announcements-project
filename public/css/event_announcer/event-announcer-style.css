@@ -1,5 +1,17 @@
 /* //css khushi  */
 
+:root {
+    --imageHeight: 420px;
+    --imageWidth: 315px;
+}
+
+@media screen and (max-width:768px) {
+    :root {
+        --imageHeight: 360px;
+        --imageWidth: 270px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,63 +26,14 @@ body {
 ::-webkit-scrollbar {
     width: 10px;
     height: 10 px;
-    background: transparent;
+    background-color: transparent;
+    position: relative;
+    right: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: rgb(0, 0, 0);
 }
-
-.heading {
-    color: rgb(27, 26, 26);
-    font-size: 3rem;
-    font-weight: 50;
-    text-align: center;
-    padding-top: 1rem;
-    margin: 0rem 0 3rem;
-    font-family: 'Hind', sans-serif;
-}
-
-.title {
-    color: rgb(0, 174, 255);
-    text-transform: uppercase;
-    font-weight: 800;
-}
-
-.inputDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.input {
-    padding: 0.5rem 1rem;
-    outline: none;
-    height: 50px;
-    border-radius: 50px;
-    width: 350px;
-    margin: 0.25rem;
-    transition: .5s;
-    font-size: 1.15rem;
-}
-
-.add {
-    outline: none;
-    border: none;
-    height: 50px;
-    border-radius: 25px;
-    width: 50px;
-    background-color: rgb(0, 162, 255);
-    color: rgb(19, 18, 18);
-    cursor: pointer;
-    transition: .5s;
-    margin: 0.25rem;
-}
-
-.add:hover {
-    opacity: 0.6;
-}
-
 .event-card-container {
     display: flex;
     flex-direction: row;
@@ -82,92 +45,21 @@ body {
     width: 100%;
 }
 
-.item {
-    padding: 2rem;
-    /* border-bottom: 1px solid rgb(24, 23, 23);
-    box-shadow: 0px 1px 7px rgb(0, 1, 0); */
-    margin: 1.5rem;
-}
-
-.item_input {
-    background: none;
-    outline: none;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 1.4rem;
-    width: 245px;
-    margin-top: 30%;
-    position: relative;
-    bottom: 13vh;
-}
-
-.remove {
-    background: none;
-    border-radius: 100%;
-    font-weight: 1000;
-    background-color: rgb(233, 24, 24);
-    color: rgb(235, 220, 220);
-    height: 40px;
-    width: 40px;
-    font-size: large;
-    font-family: 'Hind', sans-serif;
-    cursor: pointer;
-    padding: 0.2rem;
-    border: none;
-    box-shadow: 0px 1px 7px rgb(155, 14, 4);
-}
-
-.content {
-    border-bottom: 1px solid rgb(24, 23, 23);
-    /* background-image: url("./poster-background.jpeg"); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 0px 5px 10px rgb(0, 1, 0);
-    /* margin: 0.2rem; */
-    background-color: crimson;
-    /* width: 95%; */
-    height: 350px;
-    /* margin-bottom: -50px; */
-    /* margin-top: -25px; */
-    padding-bottom: -3rem;
-}
-
-.content div {
-    background-color: transparent;
-    /* color: transparent; */
-    height: 40%;
-}
-
-.content div:hover {
-    background-color: rgb(23, 49, 82);
-    height: 100%;
-    transition-duration: 1.5s;
-    transform: scaleX();
-    color: white;
-}
-
 #event-announcer {
     background-image: linear-gradient(white, #9fdedc);
-    border-bottom: 4px solid black;
 }
-
-/* //css ends */
-
 .event-card {
     height: var(--imageHeight);
     width: var(--imageWidth);
-    /* border: 2px solid red; */
     margin: 6vw;
     box-shadow: 0px 15px 16px 2px rgba(0, 0, 0, 0.63);
     -webkit-box-shadow: 0px 15px 16px 2px rgba(0, 0, 0, 0.63);
     -moz-box-shadow: 0px 15px 16px 2px rgba(0, 0, 0, 0.63);
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .event-card-img {
     transition: all 0.5s ease-in;
-    /* z-index: 2; */
     position: relative;
     transform: translateX(0px);
     box-shadow: 0px 15px 16px 2px rgba(0, 0, 0, 0.63);
@@ -178,14 +70,16 @@ body {
 .event-card-img img {
     height: var(--imageHeight);
     width: var(--imageWidth);
-    /* display: none; */
     opacity: 1;
     transition: all 0.5s ease-in;
 }
 
 .event-card-content {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     top: calc(-1*var(--imageHeight));
     opacity: 0;
     height: var(--imageHeight);
@@ -204,21 +98,110 @@ body {
     transform: translateX(calc(var(--imageWidth)/2));
 }
 
-.event-card:hover .event-card-img{
+.event-card:hover .event-card-img {
     /* opacity: 1; */
     transform: translateX(calc(-1*(var(--imageWidth)/2)));
     border-radius: 20px 0px 0px 20px;
 }
-.event-card:hover .event-card-img img{
-    /* opacity: 1; */
-    
+
+.event-card:hover .event-card-img img {
     border-radius: 20px 0px 0px 20px;
 }
+
 .event-card:hover {
     box-shadow: none;
+    cursor: pointer;
 }
 
-:root {
-    --imageHeight: 440px;
-    --imageWidth: 330px;
+.event-card-content-items {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 1.5rem;
+}
+
+.event-card-content-items img {
+    height: 30px;
+    padding-right: 20px;
+}
+
+.event-card-content-items hr {
+    width: 80px;
+    height: 10px;
+    color: black;
+}
+
+#event-card-content-items-title {
+    position: absolute;
+    top: 0px;
+}
+
+#event-card-content-items-link {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+#event-card-content-items-link a {
+    position: absolute;
+    right: 8px;
+}
+
+.event-card-description-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: left; */
+    width: 100%;
+}
+
+.event-card-description-title {
+    padding: 2rem;
+    font-size: 3rem;
+    /* width: 100%; */
+    text-align: left;
+    padding-left: 5rem;
+}
+
+.event-card-description-container img {
+    max-width: 1080px;
+    padding-left: 5rem;
+    padding-bottom: 2rem;
+}
+
+.event-card-description-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.event-card-description-details div {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.event-card-description-details div img {
+    width: 140px;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.event-card-description-desc {
+    padding: 2rem;
+    font-size: 2rem;
+    /* width: 100%; */
+    text-align: left;
+    padding-left: 5rem;
+}
+
+.event-description-close {
+    position: absolute;
+    height: 75px;
+    right: 25px;
+    /* top: 10px; */
+    margin-top: 25px;
+    cursor: pointer;
 }

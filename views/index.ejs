@@ -36,72 +36,80 @@
             <!-- event-announcer section starts  -->
             <% var size=users.length %>
                 <section id="event-announcer">
-
                     <div class="event-card-container">
-                        <div class="event-card" >
-
-                            
-                            <div class="event-card-img">
-                                <img src="css/event_announcer/derrick-cooper-L505cPnmIds-unsplash.jpg" alt="">
-                            </div>
-                            <div class="event-card-content">
-                                <ul><li>Lorem ipsum dolor sit.</li>
-                                <li>Lorem ipsum dolor sit.</li>
-                                <li>Lorem ipsum dolor sit.</li></ul>
-                            </div>
-                        </div>
-                        
-                        
-                        <% for(var i=0; i< 4; i++) { %>
-                            <!-- <form action="/description" method="post" class="formabc">
-
-                                <input type="hidden" name="eventAnnouncerID" value="<%= users[i]._id %>"> -->
-
+                        <% for(var i=0; i< users.length; i++) { %>
                             <div class="event-card" id="<%=`${i.toString()}card` %>">
-
-                                <!-- onclick="document.forms['<%-JSON.stringify(i)%>'].submit()" -->
-                                <!-- <div class="face1">
-                                    <img src="css/event_announcer/poster-background.jpeg" alt="">
-                                </div>
-                                <div class="content">
-                                    <div> <br><br><br><br>
-                                        Title: <%= users[i].fname %><br><br><br>Date: <%= users[i].lname %>
-                                                <br><br><br>Time: <%= users[i].etime %>
-                                    </div> -->
-                                <!-- </div> -->
-                                <!-- <div class="item_input">Event : <%= users[i].fname %> -->
-                                <!-- </div> -->
                                 <div class="event-card-img">
-                                    <img src="css/event_announcer/poster-background.jpeg" alt="">
+                                    <img src="<%= users[i].croppedImage %>" alt="image not found"
+                                        onerror=this.src="css/event_announcer/poster-background.jpeg">
                                 </div>
                                 <div class="event-card-content">
-                                    <ul><li>Lorem ipsum dolor sit.</li>
-                                    <li>Lorem ipsum dolor sit.</li>
-                                    <li>Lorem ipsum dolor sit.</li></ul>
+                                    <div class="event-card-content-items" id="event-card-content-items-title"><img
+                                            src="css/event_announcer/right-arrow.png" alt=""
+                                            id="event-card-content-items-title-img">
+                                        <span>
+                                            <%= users[i].fname %>
+                                        </span>
+                                    </div>
+                                    <br><br><br>
+                                    <div class="event-card-content-items"><img
+                                            src="https://img.icons8.com/ios/50/000000/calendar--v2.png" />
+                                        <%= users[i].lname %>
+                                    </div>
+                                    <div class="event-card-content-items"><img
+                                            src="https://img.icons8.com/android/24/000000/time.png" />
+                                        <%= users[i].etime %>
+                                    </div>
+                                    <div class="event-card-content-items" id="event-card-content-items-link"><a
+                                            href="<%= users[i].elink %>" target="_blank" rel="noopener noreferrer"><img
+                                                src="https://img.icons8.com/material-rounded/96/000000/link--v1.png" /></a>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- </form> -->
-                            <div id="<%= `${JSON.stringify(i)}description` %>" style="display: none;">
-                                Lorem ipsum dolor sit. : <%= users[i].fname %>;
-                            </div>
+                            <div id="<%= `${JSON.stringify(i)}description` %>" class="event-card-description-container"
+                                style="display: none;">
+                                <img src="css/event_announcer/close.png" alt="" class="event-description-close">
+                                <div class="event-card-description-title">Title</div>
 
+                                <img src="<%= users[i].originalImage %>" alt="">
+                                <div class="event-card-description-details">
+                                    <div><img src="https://img.icons8.com/ios/50/000000/calendar--v2.png" />
+                                        <%= users[i].lname %>
+                                    </div>
+                                    <div><img src="https://img.icons8.com/android/24/000000/time.png" />
+                                        <%= users[i].etime %>
+                                    </div>
+                                    <div><a href="<%= users[i].elink %>" target="_blank" rel="noopener noreferrer"><img
+                                                src="https://img.icons8.com/material-rounded/96/000000/link--v1.png" /></a>
+                                    </div>
+                                </div>
+                                <div class="event-card-description-desc">
+                                    <%= users[i].edesc %>
+                                </div>
+
+
+                            </div>
                             <% } %>
                     </div>
                 </section>
                 <script>
                     var size = parseInt('<%=size%>');
+                    $(document.body).on('click', '.event-description-close', function () {
+
+                        console.log("close button was clicked");
+                        $('.event-card-description-container').css('display', 'none');
+                        $('.event-card').css('display', 'block');
+                        for (var i = 0; i < size; i++) {
+                            $('#' + i.toString() + 'card').css('display', 'block');
+                        }
+                    })
                     for (var i = 0; i < size; i++)(function (i) {
 
                         $('#' + i.toString() + 'card').on('click', function () {
-                            // console.log(`${i} element was clicked`);
-                            $('.item').css('display', 'none');
-                            $('#' + i.toString() + 'description').css('display', 'block');
-                            // console.log("this function on " + id + "was called");
+                            $('.event-card').css('display', 'none');
+                            $('#' + i.toString() + 'description').css('display', 'flex');
                         });
                     })(i);
-
-
-
                 </script>
                 <!-- event-announcer section ends  -->
                 <%- include('footer') -%>
